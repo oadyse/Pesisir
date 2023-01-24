@@ -70,6 +70,8 @@ Route::get('/data-parameter/wisata-bahari/delete/{id}', [DataParameterController
 Route::get('/data-uji', [DataHasilUjiController::class, 'index'])->name('index-uji');
 Route::post('/data-uji/create', [DataHasilUjiController::class, 'addNew'])->name('add-uji');
 Route::post('/data-uji/update/{id}', [DataHasilUjiController::class, 'processUpdate'])->name('edit-uji');
+Route::post('/data-uji/add_parameter', [DataHasilUjiController::class, 'addNewParameter'])->name('add-ujiparam');
+Route::post('/data-uji/update_parameter/{id}', [DataHasilUjiController::class, 'processUpdateParameter'])->name('edit-ujiparam');
 Route::get('/data-uji/delete/{id}', [DataHasilUjiController::class, 'delete'])->name('delete-uji');
 
 // data laporan

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('kabupaten');
             $table->string('latitude');
             $table->string('longitude');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

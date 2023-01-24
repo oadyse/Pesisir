@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('data_uji', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pulau');
+            $table->unsignedBigInteger('id_pulau');
             $table->integer('tahun');
-            $table->string('lokasi');
             $table->timestamps();
+            $table->foreign('id_pulau')->references('id')->on('data_pesisir')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

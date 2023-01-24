@@ -27,12 +27,13 @@
                                 <table id="datatable-1" class="table data-table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th width="5%">No</th>
+                                            <th width="2data.uji.index%">No</th>
                                             <th>Nama Pulau</th>
                                             <th>Kabupaten</th>
                                             <th>Alamat Lengkap</th>
                                             <th>Latitude</th>
                                             <th>Longitude</th>
+                                            <th>Keterangan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -50,6 +51,7 @@
                                             <td>{{ $pesisir->alamat }}</td>
                                             <td>{{ $pesisir->latitude }}</td>
                                             <td>{{ $pesisir->longitude }}</td>
+                                            <td>{{ $pesisir->keterangan }}</td>
                                             <td>
                                                 <a class="iq-icons-list m-0 text-left" href="" title="Edit"
                                                     data-toggle="modal" data-target="#edit{{ $id }}">

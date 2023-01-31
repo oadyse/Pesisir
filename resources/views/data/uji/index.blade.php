@@ -54,7 +54,6 @@
                                                     Parameter
                                                 </a>
                                                 @foreach ($uji->sample as $sample)
-                                                    {{-- @if (empty($sample->id_uji)) --}}
                                                     @if ($sample->id_uji == $id && $i == 0)
                                                         <a href="" class="btn btn-warning btn-sm"
                                                             data-toggle="modal"

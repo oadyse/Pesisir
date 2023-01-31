@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-10">
                             <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
-                                <?php $selected = explode(',', $sample->id_uji); ?>
+                                <?php $selected = explode(',', $uji->sample->id_uji); ?>
                                 @foreach ($parameter as $value)
                                     @if ($value->jenis == 'biota')
                                         <option value="{{ $value->id }}"

@@ -14,7 +14,7 @@
                     @csrf
                     <div class="form-row">
                         <div class="col-3 m-auto">
-                            <label for="sel1">Golongan</label>
+                            <label for="sel1">Kriteria</label>
                         </div>
                         <div class="col-9 mb-0">
                             <select name="id_gol" class="form-control choicesjs mb-0" required>

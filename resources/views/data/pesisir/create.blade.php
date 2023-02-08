@@ -69,6 +69,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row mb-3">
+                        <div class="col-3 m-auto">
+                            <label for="validationTooltip05">Kondisi</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="validationTooltip05" name="keterangan"
+                                required>
+                            <div class="invalid-tooltip">
+                                Please Add the Data!
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Save</button>

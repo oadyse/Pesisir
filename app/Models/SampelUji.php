@@ -12,4 +12,9 @@ class SampelUji extends Model
     public $keyType = 'string';
     protected $table = 'sampel_uji';
     protected $guarded = [];
+
+    public function param()
+    {
+        return $this->hasOne(Parameter::class, 'id', 'id_parameter');
+    }
 }

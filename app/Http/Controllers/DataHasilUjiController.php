@@ -15,7 +15,8 @@ class DataHasilUjiController extends Controller
         $data = DataUji::All();
         $pesisir = DataPesisir::All();
         $parameter = Parameter::All();
-        return view('data.uji.index', compact('data', 'pesisir', 'parameter'));
+        $sampelUji = SampelUji::All();
+        return view('data.uji.index', compact('data', 'pesisir', 'parameter', 'sampelUji'));
     }
 
     public function addNew(Request $request)

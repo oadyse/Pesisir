@@ -36,7 +36,8 @@
                                 @foreach ($parameter as $value)
                                     @if ($value->jenis == 'wisata')
                                         <option value="{{ $value->id }}">
-                                            {{ $value->parameter }}</option>
+                                            {{ $value->parameter }}
+                                        </option>
                                     @endif
                                 @endforeach
                             </select>

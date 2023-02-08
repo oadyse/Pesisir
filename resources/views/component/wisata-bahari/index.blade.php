@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Data Golongan Parameter Wisata Bahari</h4>
+                                <h4 class="card-title">Data Kriteria Parameter Wisata Bahari</h4>
                             </div>
                             <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal"
                                 data-target="#create">
@@ -28,7 +28,7 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th>Golongan Parameter</th>
+                                            <th>Kriteria Parameter</th>
                                             <th>Nama Parameter</th>
                                             <th>Aksi</th>
                                         </tr>

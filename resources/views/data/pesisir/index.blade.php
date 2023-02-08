@@ -33,7 +33,7 @@
                                             <th>Alamat Lengkap</th>
                                             <th>Latitude</th>
                                             <th>Longitude</th>
-                                            <th>Keterangan</th>
+                                            <th>Kondisi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>

@@ -3,7 +3,6 @@
 <div class="wrapper">
     @include('layout.sidebar')
     @include('layout.topnav')
-
     <div class="content-page">
         <div class="container-fluid">
             <div class="row">
@@ -49,13 +48,16 @@
                                             <td>{{ $uji->pulau->alamat }}</td>
                                             <td>
                                                 <?php $i = 0; ?>
-                                                <a href="" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                <a href="" class="btn btn-primary btn-sm mb-2"
+                                                    data-toggle="modal"
                                                     data-target="#pilih_parameter{{ $id }}">Pilih
                                                     Parameter
                                                 </a>
-                                                @foreach ($uji->sample as $sample)
+                                                {{-- @foreach ($uji->sample as $sample)
+                                                    @if ($sample->id_uji == $id && $i == 0) --}}
+                                                @foreach ($sampelUji as $sample)
                                                     @if ($sample->id_uji == $id && $i == 0)
-                                                        <a href="" class="btn btn-warning btn-sm"
+                                                        <a href="" class="btn btn-warning btn-sm mb-2"
                                                             data-toggle="modal"
                                                             data-target="#edit_parameter{{ $id }}">Edit
                                                             Parameter

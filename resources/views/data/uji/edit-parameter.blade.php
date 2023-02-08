@@ -18,11 +18,10 @@
                         </div>
                         <div class="col-10">
                             <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
-                                <?php $selected = explode(',', $uji->sample->id_uji); ?>
                                 @foreach ($parameter as $value)
                                     @if ($value->jenis == 'biota')
                                         <option value="{{ $value->id }}"
-                                            {{ in_array($value->id, $selected) ? 'selected' : '' }}>
+                                            {{ $value->id == $sample->id_parameter ? 'selected' : '' }}>
                                             {{ $value->parameter }}</option>
                                     @endif
                                 @endforeach
@@ -35,12 +34,14 @@
                         </div>
                         <div class="col-10">
                             <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
-                                @foreach ($parameter as $value)
+                                {{-- @foreach ($parameter as $value)
                                     @if ($value->jenis == 'wisata')
-                                        <option value="{{ $value->id }}">
-                                            {{ $value->parameter }}</option>
+                                        <option value="{{ $value->id }}"
+                                            {{ $uji->id == $sample->id_uji ? 'selected' : '' }}>
+                                        </option>
+                                        {{ $value->parameter }}
                                     @endif
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>

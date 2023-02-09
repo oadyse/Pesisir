@@ -47,24 +47,19 @@
                                             <td>{{ $uji->tahun }}</td>
                                             <td>{{ $uji->pulau->alamat }}</td>
                                             <td>
-                                                <?php $i = 0; ?>
-                                                <a href="" class="btn btn-primary btn-sm mb-2"
-                                                    data-toggle="modal"
-                                                    data-target="#pilih_parameter{{ $id }}">Pilih
-                                                    Parameter
-                                                </a>
-                                                {{-- @foreach ($uji->sample as $sample)
-                                                    @if ($sample->id_uji == $id && $i == 0) --}}
-                                                @foreach ($sampelUji as $sample)
-                                                    @if ($sample->id_uji == $id && $i == 0)
-                                                        <a href="" class="btn btn-warning btn-sm mb-2"
-                                                            data-toggle="modal"
-                                                            data-target="#edit_parameter{{ $id }}">Edit
-                                                            Parameter
-                                                        </a>
-                                                    @endif
-                                                    <?php $i++; ?>
-                                                @endforeach
+                                                @if (count($uji->sample) > 0)
+                                                    <a href="" class="btn btn-warning btn-sm mb-2"
+                                                        data-toggle="modal"
+                                                        data-target="#edit_parameter{{ $id }}">Edit
+                                                        Parameter
+                                                    </a>
+                                                @else
+                                                    <a href="" class="btn btn-primary btn-sm mb-2"
+                                                        data-toggle="modal"
+                                                        data-target="#pilih_parameter{{ $id }}">Pilih
+                                                        Parameter
+                                                    </a>
+                                                @endif
                                             </td>
                                             <td>
                                                 <a class="iq-icons-list m-0 text-left" href="" title="Edit"

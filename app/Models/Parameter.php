@@ -17,4 +17,9 @@ class Parameter extends Model
     {
         return $this->belongsTo(GolonganParameter::class, 'id_gol', 'id');
     }
+
+    public function sampel()
+    {
+        return $this->hasMany(SampelUji::class, 'id_parameter', 'id');
+    }
 }

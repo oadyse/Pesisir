@@ -20,9 +20,14 @@
                             <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
                                 @foreach ($parameter as $value)
                                     @if ($value->jenis == 'biota')
-                                        <option value="{{ $value->id }}"
-                                            {{ $value->id == $sample->id_parameter ? 'selected' : '' }}>
-                                            {{ $value->parameter }}</option>
+                                        @php $selected = ''; @endphp
+                                        @foreach ($sampelUji as $uji)
+                                            @if ($uji->param->jenis == 'biota' && $value->id == $uji->id_parameter)
+                                                @php $selected = 'selected' @endphp
+                                            @endif
+                                        @endforeach
+                                        <option value="{{ $value->id }}" {{ $selected }}> {{ $value->parameter }}
+                                        </option>
                                     @endif
                                 @endforeach
                             </select>
@@ -34,14 +39,18 @@
                         </div>
                         <div class="col-10">
                             <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
-                                {{-- @foreach ($parameter as $value)
+                                @foreach ($parameter as $value)
                                     @if ($value->jenis == 'wisata')
-                                        <option value="{{ $value->id }}"
-                                            {{ $uji->id == $sample->id_uji ? 'selected' : '' }}>
+                                        @php $selected = ''; @endphp
+                                        @foreach ($sampelUji as $uji)
+                                            @if ($uji->param->jenis == 'wisata' && $value->id == $uji->id_parameter)
+                                                @php $selected = 'selected' @endphp
+                                            @endif
+                                        @endforeach
+                                        <option value="{{ $value->id }}" {{ $selected }}> {{ $value->parameter }}
                                         </option>
-                                        {{ $value->parameter }}
                                     @endif
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
                     </div>

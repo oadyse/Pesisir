@@ -38,7 +38,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1 class="text-light"><a href="index.html"><span>JUDUL APP</span></a></h1>
+                <h1 class="text-light"><a href="index.html"><span>SI IKA</span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="{{ asset('landing') }}/assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -49,7 +49,7 @@
                     <li><a class="nav-link scrollto" href="#about">Tentang Sistem</a></li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     @if (empty(Auth::user()->name))
-                        <li><a class="nav-link scrollto bg-dark" href="{{ route('login') }}">Login</a></li>
+                        <li><a class="nav-link scrollto bg-dark" href="{{ route('login') }}">Login/Register</a></li>
                     @else
                         <li><a class="nav-link scrollto bg-dark" href="{{ url('dashboard') }}">Dashboard</a></li>
                     @endif

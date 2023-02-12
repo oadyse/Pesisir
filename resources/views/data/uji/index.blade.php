@@ -53,6 +53,10 @@
                                                         data-target="#edit_parameter{{ $id }}">Edit
                                                         Parameter
                                                     </a>
+                                                    <a href="" class="btn btn-info btn-sm mb-2"
+                                                        data-toggle="modal"
+                                                        data-target="#add_sampeluji{{ $id }}">Input Sampel Uji
+                                                    </a>
                                                 @else
                                                     <a href="" class="btn btn-primary btn-sm mb-2"
                                                         data-toggle="modal"
@@ -72,10 +76,11 @@
                                                     </svg>
                                                 </a>
 
-                                                {{-- Modal Parameter --}}
-                                                @include('data.uji.add-parameter')
-                                                @include('data.uji.edit-parameter')
                                             </td>
+                                            {{-- Modal Parameter --}}
+                                            @include('data.uji.add-parameter')
+                                            @include('data.uji.edit-parameter')
+                                            @include('data.uji.add-sampeluji')
                                         </tr>
                                         <?php
                                         $no += 1;

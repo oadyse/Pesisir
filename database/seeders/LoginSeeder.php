@@ -19,15 +19,15 @@ class LoginSeeder extends Seeder
         DB::table('users')->insert(
             [
                 [
-                    'name' => 'Eka',
-                    'username' => 'admin',
+                    'name' => 'Raesa',
+                    'username' => 'raesa123',
                     'role' => 'admin',
                     'password' => bcrypt('123456'),
                 ],
                 [
                     'name' => 'Oady',
-                    'username' => 'staff',
-                    'role' => 'staff',
+                    'username' => 'oady',
+                    'role' => 'user',
                     'password' => bcrypt('123456'),
                 ],
             ]

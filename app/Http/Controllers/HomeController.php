@@ -18,11 +18,11 @@ class HomeController extends Controller
 
     public function adminHome()
     {
-        
+
         return view('dashboard');
     }
 
-    public function staffHome()
+    public function userHome()
     {
         return view('dashboard');
     }

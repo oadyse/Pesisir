@@ -29,8 +29,8 @@
                                 if (Auth::user()->role == 'admin') {
                                     $role = 'Admin';
                                 }
-                                if (Auth::user()->role == 'staff') {
-                                    $role = 'Staff';
+                                if (Auth::user()->role == 'user') {
+                                    $role = 'User';
                                 }
                                 ?>
                                 <span class="mb-0 ml-2 user-name">{{ Auth::user()->name }} ({{ $role }})</span>

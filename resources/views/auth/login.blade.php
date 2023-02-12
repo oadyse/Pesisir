@@ -43,6 +43,11 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-block mt-2">Log In</button>
+                                    <div class="col-lg-12 mt-3">
+                                        <p class="mb-0 text-center">Don't have an account?
+                                            <a href="{{ route('register') }}">Register</a>
+                                        </p>
+                                    </div>
                                 </form>
                             </div>
                         </div>

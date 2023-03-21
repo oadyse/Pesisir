@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-center">
                             <div class="header-title">
-                                <h4 class="card-title">Data Laporan Uji</h4>
+                                <h4 class="card-title">Hasil Laporan</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -27,20 +27,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $no = 1;
-
-                                        foreach ($data as $laporan) {
-                                            $id = $laporan->id;
-                                        ?>
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>{{ $laporan->pulau->nama }}</td>
                                             <td>{{ $laporan->tahun }}</td>
                                             <td>{{ $laporan->pulau->alamat }}</td>
                                             <td class="text-center">
-                                                <a class="iq-icons-list m-0 text-left"
-                                                    href="{{ route('detail-laporan', base64_encode($id)) }}"
+                                                <a class="iq-icons-list m-0 text-left" href=""
                                                     title="View Detail Laporan">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -52,10 +45,6 @@
 
                                             </td>
                                         </tr>
-                                        <?php
-                                        $no += 1;
-                                        }
-                                        ?>
                                     </tbody>
                                 </table>
                             </div>

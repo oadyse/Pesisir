@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="{{ route('add-hasil', base64_encode($id)) }}" class="needs-validation"
-                    novalidate>
+                    enctype='multipart/form-data' novalidate>
                     @csrf
                     @foreach ($sampelUji as $data)
                         <input type="hidden" name="id[]" value="{{ $data->id }}">

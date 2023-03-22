@@ -34,6 +34,38 @@ class DataHasilUjiController extends Controller
         }
     }
 
+    public function addNewParameter(Request $request)
+    {
+        // $addUji = SampelUji::create([
+        //     'id_uji' => $request->id_uji,
+        //     'id_parameter' => $request->id_parameter,
+        // ]);
+        // $id_parameter = $request->id_parameter;
+        // foreach ($id_parameter as $k => $id) {
+        //     $values[] = [
+        //         'id_uji'  => $request->id_uji,
+        //         'id_parameter'      => $request->id_parameter[$k],
+        //     ];
+
+        // }
+        var_dump($request->input());
+        exit;
+        $addParameter = SampelUji::create($values);
+        foreach ($request->post('id_parameter') as $val) {
+            $addParameter = SampelUji::create([
+                'id_uji' => $request->id_uji,
+                'id_parameter' => $request->id_parameter[$val],
+            ]);
+        }
+        $addParameter->save();
+
+        if ($addParameter) {
+            return redirect('/data-uji')->with("successAdd", "Data added successfully");
+        } else {
+            return redirect()->back()->withInput()->withErrors("Terjadi kesalahan");
+        }
+    }
+
     public function processAddHasil(Request $request, $id)
     {
         $id = base64_decode($id);

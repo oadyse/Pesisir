@@ -31,7 +31,7 @@ Auth::routes();
 /*All Admin Routes List*/
 Route::middleware(['user-access:admin'])->group(function () {
 
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.home');
 
     // kurva
     Route::get('/kurva-parameter', [KurvaParameterController::class, 'index'])->name('index-kurva');
@@ -80,7 +80,7 @@ Route::middleware(['user-access:admin'])->group(function () {
 /*All User Routes List*/
 Route::middleware(['user-access:user,admin'])->group(function () {
 
-    Route::get('/user/home', [HomeController::class, 'userHome'])->name('user.home');
+    Route::get('/dashboard', [HomeController::class, 'userHome'])->name('user.home');
 
     // kurva
     Route::get('/kurva-parameter', [KurvaParameterController::class, 'index'])->name('index-kurva');

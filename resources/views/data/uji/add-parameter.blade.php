@@ -17,7 +17,7 @@
                             <label for="validationTooltip05">Pilih Parameter Biota Laut</label>
                         </div>
                         <div class="col-10">
-                            <select multiple class="form-control choicesjs" id="sel2" name="id_parameter[]">
+                            <select multiple class="form-control choicesjs" id="sel1" name="biota[]">
                                 @foreach ($parameter as $value)
                                     @if ($value->jenis == 'biota')
                                         <option value="{{ $value->id }}">

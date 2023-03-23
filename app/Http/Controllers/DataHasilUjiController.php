@@ -36,25 +36,11 @@ class DataHasilUjiController extends Controller
 
     public function addNewParameter(Request $request)
     {
-        // $addUji = SampelUji::create([
-        //     'id_uji' => $request->id_uji,
-        //     'id_parameter' => $request->id_parameter,
-        // ]);
-        // $id_parameter = $request->id_parameter;
-        // foreach ($id_parameter as $k => $id) {
-        //     $values[] = [
-        //         'id_uji'  => $request->id_uji,
-        //         'id_parameter'      => $request->id_parameter[$k],
-        //     ];
-
-        // }
-        var_dump($request->input());
-        exit;
-        $addParameter = SampelUji::create($values);
-        foreach ($request->post('id_parameter') as $val) {
+        foreach ($request->post('id_parameter') as $row => $val) {
             $addParameter = SampelUji::create([
                 'id_uji' => $request->id_uji,
-                'id_parameter' => $request->id_parameter[$val],
+                'id_parameter' => $request->id_parameter[$row],
+                'hasil' => 0,
             ]);
         }
         $addParameter->save();
@@ -69,8 +55,10 @@ class DataHasilUjiController extends Controller
     public function processAddHasil(Request $request, $id)
     {
         $id = base64_decode($id);
-        foreach ($request->get('hasil') as $row => $val) {
-            $sampelUji = SampelUji::findOrFail($request->id[$row])->update([
+        foreach ($request->input('hasil') as $row => $val) {
+            $sampelUji = SampelUji::find($request->id[$row])->update([
+                'id_uji' => $request->id_uji,
+                'id_parameter' => $request->id_parameter[$row],
                 'hasil' => $request->hasil[$row],
             ]);
         }

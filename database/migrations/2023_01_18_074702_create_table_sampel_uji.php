@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_uji');
             $table->unsignedBigInteger('id_parameter');
-            $table->float('hasil');
+            $table->float('hasil')->nullable();
             $table->timestamps();
             $table->foreign('id_uji')->references('id')->on('data_uji')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_parameter')->references('id')->on('parameter')->onDelete('cascade')->onUpdate('cascade');

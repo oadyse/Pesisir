@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataUji;
+use App\Models\SampelUji;
 use Illuminate\Http\Request;
 
 class DataLaporanController extends Controller
@@ -16,7 +17,7 @@ class DataLaporanController extends Controller
     public function detail($id)
     {
         $id = base64_decode($id);
-        $data = DataUji::where('id', $id)->first;
+        $data = SampelUji::where('id_uji', $id)->get();
         return view('data.laporan.detail_laporan', compact('data'));
     }
 }

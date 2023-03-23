@@ -76,11 +76,11 @@
                                                     </svg>
                                                 </a>
 
+                                                {{-- Modal Parameter --}}
+                                                @include('data.uji.add-parameter')
+                                                @include('data.uji.edit-parameter')
+                                                @include('data.uji.add-sampeluji')
                                             </td>
-                                            {{-- Modal Parameter --}}
-                                            @include('data.uji.add-parameter')
-                                            @include('data.uji.edit-parameter')
-                                            @include('data.uji.add-sampeluji')
                                         </tr>
                                         <?php
                                         $no += 1;

@@ -50,54 +50,6 @@
             </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= About Section ======= -->
-    <section id="services" class="about">
-        <div class="container">
-
-            <div class="row no-gutters">
-                <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
-                    <div class="content">
-                        <h3>Tentang Sistem</h3>
-                        <p>
-                            Sistem ini dirancang berbasis web yang dapat mempercepat serta mempermudah pihak
-                            terkait untuk menentukan/menghitung indeks kualitas air pesisir dan laut.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xl-7 d-flex align-items-stretch">
-                    <div class="icon-boxes d-flex flex-column justify-content-center">
-                        <div class="row text-center">
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <h4>Metode Coastal Water Quality Index (CWQI)</h4>
-                                <p>
-                                    penerapan metode ini untuk menentukan status kualitas air pesisir dan laut pada
-                                    setiap titik berdasarkan data pemantauan yang dimiliki masing-masing titik.
-                                </p>
-                            </div>
-                            <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                                <h4>Media Informasi Tentang Kualitas Air Pesisir dan Laut</h4>
-                                <p>
-                                    penyampaian informasi mengenai kualitas air pesisir dan laut ditampilkan secara
-                                    jelas, informatif, dan interaktif sehingga akan lebih mudah untuk diterima bagi
-                                    seluruh masyarakat.
-                                </p>
-                            </div>
-                            <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="300">
-                                <h4>Media Penyajian Status Kualitas Air Pesisir dan Laut</h4>
-                                <p>
-                                    Status kualitas air pesisir dan laut ini ditampilkan dalam bentuk tabel dan
-                                    peta titik pemantauan untuk meningkatkan informasi yang diterima dari data
-                                    pemantauan kualitas air pesisir dan laut.
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End .content-->
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Section -->
-
 </main><!-- End #main -->
 
 @include('layout-landing.footer')

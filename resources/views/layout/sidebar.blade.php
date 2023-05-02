@@ -31,9 +31,9 @@
                     </a>
                 </li>
                 <li class="px-3 pt-3 pb-2">
-                    <span class="text-uppercase small font-weight-bold">Component</span>
+                    <span class="text-uppercase small font-weight-bold">Kriteria Parameter</span>
                 </li>
-                <li class="{{ Request::is('kurva-parameter') ? 'active' : '' }} sidebar-layout">
+                {{-- <li class="{{ Request::is('kurva-parameter') ? 'active' : '' }} sidebar-layout">
                     <a href="{{ route('index-kurva') }}" class="svg-icon">
                         <i class="">
                             <svg class="svg-icon" id="iq-chart-1" width="18" xmlns="http://www.w3.org/2000/svg"
@@ -45,54 +45,33 @@
                         </i>
                         <span class="ml-2">Kurva Parameter</span>
                     </a>
-                </li>
+                </li> --}}
                 @if (Auth::user()->role == 'admin')
-                    <li class="sidebar-layout">
-                        <a href="#app5" class="collapsed svg-icon" data-toggle="collapse" aria-expanded="false">
+                    <li class="{{ Request::is('parameter-biotalaut') ? 'active' : '' }} sidebar-layout">
+                        <a href="{{ route('index-biota') }}" class="svg-icon">
                             <i class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="svg-icon" width="18" id="iq-ui-1-10" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                                        style="stroke-dasharray: 83, 103; stroke-dashoffset: 0;"></path>
                                 </svg>
                             </i>
-                            <span class="ml-2">Kriteria Parameter</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon iq-arrow-right arrow-active"
-                                width="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
+                            <span class="ml-2">Biota Laut</span>
                         </a>
-                        <ul id="app5" class="submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="{{ Request::is('parameter-biotalaut') ? 'active' : '' }} sidebar-layout">
-                                <a href="{{ route('index-biota') }}" class="svg-icon">
-                                    <i class="">
-                                        <svg class="svg-icon" width="18" id="iq-ui-1-10"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                                                style="stroke-dasharray: 83, 103; stroke-dashoffset: 0;"></path>
-                                        </svg>
-                                    </i>
-                                    <span class="ml-2">Biota Laut</span>
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('parameter-wisatabahari') ? 'active' : '' }} sidebar-layout">
-                                <a href="{{ route('index-wisata') }}" class="svg-icon">
-                                    <i class="">
-                                        <svg class="svg-icon" width="18" id="iq-ui-1-12"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                                style="stroke-dasharray: 85, 105; stroke-dashoffset: 0;"></path>
-                                        </svg>
-                                    </i>
-                                    <span class="ml-2">Wisata Bahari</span>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="{{ Request::is('parameter-wisatabahari') ? 'active' : '' }} sidebar-layout">
+                        <a href="{{ route('index-wisata') }}" class="svg-icon">
+                            <i class="">
+                                <svg class="svg-icon" width="18" id="iq-ui-1-12" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                        style="stroke-dasharray: 85, 105; stroke-dashoffset: 0;"></path>
+                                </svg>
+                            </i>
+                            <span class="ml-2">Wisata Bahari</span>
+                        </a>
                     </li>
                 @endif
                 <li class="px-3 pt-3 pb-2">

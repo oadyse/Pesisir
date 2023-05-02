@@ -73,7 +73,7 @@
                                         @foreach ($data as $laporan)
                                             @if ($laporan->param->jenis == 'biota')
                                                 @php
-                                                    $Vi = round(1 / $laporan->get_data->nilai, 2);
+                                                    $Vi = round(1 / $laporan->get_data->nilai, 5);
                                                     $totalVi += $Vi;
                                                 @endphp
                                             @endif
@@ -83,10 +83,11 @@
                                             @if ($laporan->param->jenis == 'biota')
                                                 @php
                                                     $SVi = $laporan->get_data->nilai;
-                                                    $Vi = round(1 / $SVi, 2);
+                                                    $Vi = round(1 / $SVi, 4);
                                                     $k = 1 / $totalVi;
                                                 @endphp
                                                 <tr class="text-center">
+                                                    {{ $totalVi }}
                                                     <td>{{ $laporan->param->parameter }}</td>
                                                     <td>{{ $laporan->get_data->baku_mutu }}</td>
                                                     <td>
@@ -94,10 +95,10 @@
                                                     </td>
                                                     <td>1</td>
                                                     <td>
-                                                        {{ number_format($Vi, 2, ',', ' ') }}
+                                                        {{ number_format($Vi, 5, ',', ' ') }}
                                                     </td>
-                                                    <td>{{ number_format($k, 8, ',', ' ') }}</td>
-                                                    <td>{{ number_format($k / $SVi, 8, ',', ' ') }}
+                                                    <td>{{ number_format($k, 5, ',', ' ') }}</td>
+                                                    <td>{{ number_format($k / $SVi, 5, ',', ' ') }}
                                                     </td>
                                                 </tr>
                                             @endif
@@ -134,7 +135,19 @@
                                                     $Wi = $k / $SVi;
                                                     
                                                     // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
-                                                    $nilaiY = 1.010407459228659 * exp(-0.1169958111364134 * $laporan->hasil);
+                                                    if ($laporan->param->id == 11) {
+                                                        // 11 = BOD5
+                                                        $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $laporan->hasil);
+                                                    } elseif ($laporan->param->id == 12) {
+                                                        // 12 = Amonia total
+                                                        $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $laporan->hasil);
+                                                    } elseif ($laporan->param->id == 13) {
+                                                        // 13 = Ortofosfat
+                                                        $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * $laporan->hasil);
+                                                    } elseif ($laporan->param->id == 14) {
+                                                        // 14 = Nitrat
+                                                        $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $laporan->hasil);
+                                                    }
                                                     
                                                     // Nilai y * 100 * nilai Wi (diklai 100 untung menghilangkan 0 di depan angka)
                                                     $hasil = $nilaiY * 100 * $Wi;
@@ -147,21 +160,24 @@
                                                     $WQIAU += $x;
                                                 @endphp
                                                 <tr>
-                                                    <td>{{ $laporan->param->parameter }}</td>
-                                                    <td>{{ number_format($Wi, 8, ',', ' ') }}</td>
-                                                    <td>{{ $hasil }}</td>
+                                                    <td>{{ $laporan->param->id }}</td>
+                                                    <td>{{ number_format($Wi, 5, ',', ' ') }}</td>
+                                                    <td>{{ number_format($hasil, 5, ',', ' ') }}</td>
                                                 </tr>
                                             @endif
                                         @endforeach
                                         <tr>
                                             <td class="table-warning">WQIA</td>
                                             <td class="table-secondary">Jumlah</td>
-                                            <td class="table-secondary"><b>{{ $WQIA }}</b></td>
+                                            <td class="table-secondary"><b>{{ number_format($WQIA, 2, ',', ' ') }}</b>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="table-warning">WQIAU</td>
                                             <td class="table-secondary">Jumlah</td>
-                                            <td class="table-secondary"><b>{{ $WQIAU / 4 }}</b></td>
+                                            <td class="table-secondary">
+                                                <b>{{ number_format($WQIAU / 4, 5, ',', ' ') }}</b>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

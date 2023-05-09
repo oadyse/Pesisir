@@ -28,6 +28,8 @@ Route::post('register/action', [RegisterController::class, 'create'])->name('reg
 
 Auth::routes();
 
+Route::get('status-indeks-air', [HomeController::class, 'status'])->name('status');
+
 /*All Admin Routes List*/
 Route::middleware(['user-access:admin'])->group(function () {
 

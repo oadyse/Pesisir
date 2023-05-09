@@ -1,5 +1,14 @@
 @include('layout-landing.header')
 
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+        <h2>Selamat Datang di Sistem Informasi</h2>
+        <h1>Indeks Kualitas Air Pesisir</h1>
+        <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+    </div>
+</section><!-- End Hero -->
+
 <main id="main">
 
     <!-- ======= Services Section ======= -->

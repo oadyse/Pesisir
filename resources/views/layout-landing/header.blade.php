@@ -45,9 +45,12 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : '' }}"
+                            href="{{ url('/') }}">Beranda</a>
+                    </li>
                     <li><a class="nav-link scrollto" href="#about">Tentang Sistem</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('status-indeks-air') ? 'active' : '' }}"
+                            href="{{ route('status') }}">Status Indeks Air</a></li>
                     @if (empty(Auth::user()->name))
                         <li><a class="nav-link scrollto bg-dark" href="{{ route('login') }}">Login/Register</a></li>
                     @else
@@ -59,12 +62,3 @@
 
         </div>
     </header><!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <div class="hero-container" data-aos="fade-up">
-            <h2>Selamat Datang di Sistem Informasi</h2>
-            <h1>Indeks Kualitas Air Pesisir</h1>
-            <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
-        </div>
-    </section><!-- End Hero -->

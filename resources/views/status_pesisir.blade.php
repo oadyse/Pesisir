@@ -40,12 +40,12 @@
                     @foreach ($laporan->sample as $sample)
                         @if ($sample->param->jenis == 'biota' && $sample->uji_ke == 1)
                             @php
-                            foreach ($sample as $isi) {
+                            $sample_uji = $sample->pluck('uji_ke','uji_ke')->toArray();
+                            foreach ($sample_uji as $isi) {
                                 $SVi = ($sample->get_data->nilai==''?1:$sample->get_data->nilai);
                                 $Vi = round(1 / $SVi, 2);
                                 $k = 1 / $totalVi;
                                 $Wi = $k / $SVi;
-                                dd($parameter['biota'][$sample->id_parameter],$isi);
                                 // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
                                 if ($sample->param->id == 11) {
                                     // 11 = BOD5
@@ -62,7 +62,6 @@
                                 } else {
                                     $nilaiY = 0;
                                 }
-                                dd($nilaiY);
                                 
                                 // Nilai y * 100 * nilai Wi (diklai 100 untung menghilangkan 0 di depan angka)
                                 $hasil[$isi] = $nilaiY * 100 * $Wi;

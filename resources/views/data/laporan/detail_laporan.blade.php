@@ -199,6 +199,11 @@
                                 </table>
                             </div>
                             <div class="row my-3">
+                                @php
+                                    $min = number_format(min($WQIA), 2, ',', ' ');
+                                    $mean = number_format(array_sum($WQIA)/count($WQIA), 2, ',', ' ');
+                                    $max = number_format(max($WQIA), 2, ',', ' ');
+                                @endphp
                                 <div class="col-2">Min = {{number_format(min($WQIA), 2, ',', ' ')}}</div>
                                 <div class="col-2">Mean = {{number_format(array_sum($WQIA)/count($WQIA), 2, ',', ' ')}}</div>
                                 <div class="col-2">Max = {{number_format(max($WQIA), 2, ',', ' ')}}</div>
@@ -206,9 +211,24 @@
                             <div class="row my-3">
                                 <div class="col-12">
                                     <b>Kesimpulan:</b>
+                                    @php
+                                        function hitung($angka) {
+                                            if($angka < 25) {
+                                                return 'Sangat Buruk';
+                                            } else if($angka < 50) {
+                                                return 'Buruk';
+                                            } else if($angka < 70) {
+                                                return 'Sedang';
+                                            } else if($angka < 90) {
+                                                return 'Bagus';
+                                            } else if($angka < 100) {
+                                                return 'Sangat Bagus';
+                                            }
+                                        }
+                                    @endphp
                                     <p>
-                                        Nilai CWQI berkisar diantara ...., sehingga dapat dikatakan kualitas air pesisir
-                                        untuk biota laut berada pada tingkat yang .... pada tahun
+                                        Nilai CWQI berkisar diantara <b>{{$min}} - {{$max}}</b>, sehingga dapat dikatakan kualitas air pesisir
+                                        untuk biota laut berada pada tingkat yang <b> {{ hitung($max) }} </b> pada tahun
                                         {{ $laporan->get_year->tahun }}.
                                     </p>
                                 </div>

@@ -14,6 +14,13 @@
                         </p>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"> Status kualitas air pesisir dan laut</h4>
+                        
+                        @include('status_pesisir')
+                    </div>
+                </div>
             </div>
         </div>
     </div>

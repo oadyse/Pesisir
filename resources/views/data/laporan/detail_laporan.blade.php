@@ -129,53 +129,53 @@
                                             // $Wi = [];
                                             $hasil = [];
                                         @endphp
-                                            @foreach ($data as $laporan)
-                                                @if ($laporan->param->jenis == 'biota' && $laporan->uji_ke == 1)
-                                                    @php
-                                                    foreach ($sample as $isi) {
-                                                        $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
-                                                        $Vi = round(1 / $SVi, 2);
-                                                        $k = 1 / $totalVi;
-                                                        $Wi = $k / $SVi;
-                                                        
-                                                        // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
-                                                        if ($laporan->param->id == 11) {
-                                                            // 11 = BOD5
-                                                            $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $parameter['biota'][$laporan->id_parameter][$isi]);
-                                                        } elseif ($laporan->param->id == 12) {
-                                                            // 12 = Amonia total
-                                                            $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $parameter['biota'][$laporan->id_parameter][$isi]);
-                                                        } elseif ($laporan->param->id == 13) {
-                                                            // 13 = Ortofosfat
-                                                            $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * $parameter['biota'][$laporan->id_parameter][$isi]);
-                                                        } elseif ($laporan->param->id == 14) {
-                                                            // 14 = Nitrat
-                                                            $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $parameter['biota'][$laporan->id_parameter][$isi]);
-                                                        } else {
-                                                            $nilaiY = 0;
-                                                        }
-                                                        
-                                                        // Nilai y * 100 * nilai Wi (diklai 100 untung menghilangkan 0 di depan angka)
-                                                        $hasil[$isi] = $nilaiY * 100 * $Wi;
-                                                        $x = $nilaiY * 100;
-                                                        
-                                                        // Total Nilai akhir
-                                                        $WQIA[$isi] = empty($WQIA[$isi]) ? 0 : $WQIA[$isi];
-                                                        $WQIA[$isi] += $hasil[$isi];
-                                                        
-                                                        // Total Nilai perkalian nilaiY *100
-                                                        $WQIAU[$isi] = empty($WQIAU[$isi]) ? 0 : $WQIAU[$isi];
-                                                        $WQIAU[$isi] += $x;
+                                        @foreach ($data as $laporan)
+                                            @if ($laporan->param->jenis == 'biota' && $laporan->uji_ke == 1)
+                                                @php
+                                                foreach ($sample as $isi) {
+                                                    $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
+                                                    $Vi = round(1 / $SVi, 2);
+                                                    $k = 1 / $totalVi;
+                                                    $Wi = $k / $SVi;
+                                                    
+                                                    // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
+                                                    if ($laporan->param->id == 11) {
+                                                        // 11 = BOD5
+                                                        $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $parameter['biota'][$laporan->id_parameter][$isi]);
+                                                    } elseif ($laporan->param->id == 12) {
+                                                        // 12 = Amonia total
+                                                        $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $parameter['biota'][$laporan->id_parameter][$isi]);
+                                                    } elseif ($laporan->param->id == 13) {
+                                                        // 13 = Ortofosfat
+                                                        $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * $parameter['biota'][$laporan->id_parameter][$isi]);
+                                                    } elseif ($laporan->param->id == 14) {
+                                                        // 14 = Nitrat
+                                                        $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $parameter['biota'][$laporan->id_parameter][$isi]);
+                                                    } else {
+                                                        $nilaiY = 0;
                                                     }
-                                                    @endphp
-                                                    <tr>
-                                                        <td>{{ $laporan->param->parameter }}</td>
-                                                        <td>{{ number_format($Wi, 5, ',', ' ') }}</td>
-                                                        @foreach ($sample as $isi)
-                                                            <td>{{ number_format($hasil[$isi], 5, ',', ' ') }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                @endif
+                                                    
+                                                    // Nilai y * 100 * nilai Wi (diklai 100 untung menghilangkan 0 di depan angka)
+                                                    $hasil[$isi] = $nilaiY * 100 * $Wi;
+                                                    $x = $nilaiY * 100;
+                                                    
+                                                    // Total Nilai akhir
+                                                    $WQIA[$isi] = empty($WQIA[$isi]) ? 0 : $WQIA[$isi];
+                                                    $WQIA[$isi] += $hasil[$isi];
+                                                    
+                                                    // Total Nilai perkalian nilaiY *100
+                                                    $WQIAU[$isi] = empty($WQIAU[$isi]) ? 0 : $WQIAU[$isi];
+                                                    $WQIAU[$isi] += $x;
+                                                }
+                                                @endphp
+                                                <tr>
+                                                    <td>{{ $laporan->param->parameter }}</td>
+                                                    <td>{{ number_format($Wi, 5, ',', ' ') }}</td>
+                                                    @foreach ($sample as $isi)
+                                                        <td>{{ number_format($hasil[$isi], 5, ',', ' ') }}</td>
+                                                    @endforeach
+                                                </tr>
+                                            @endif
                                         @endforeach
                                         <tr>
                                             <td class="table-warning">WQIA</td>

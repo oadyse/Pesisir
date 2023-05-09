@@ -15,7 +15,7 @@ class DataHasilUjiController extends Controller
         $data = DataUji::All();
         $pesisir = DataPesisir::All();
         $parameter = Parameter::All();
-        $sampelUji = SampelUji::All();
+        $sampelUji = SampelUji::orderBy('uji_ke','asc')->get();
         return view('data.uji.index', compact('data', 'pesisir', 'parameter', 'sampelUji'));
     }
 
@@ -36,14 +36,31 @@ class DataHasilUjiController extends Controller
 
     public function addNewParameter(Request $request)
     {
-        foreach ($request->post('id_parameter') as $row => $val) {
-            $addParameter = SampelUji::create([
-                'id_uji' => $request->id_uji,
-                'id_parameter' => $request->id_parameter[$row],
-                'hasil' => 0,
-            ]);
+        $sampelUji = SampelUji::where(['id_uji'=>$request->id_uji])->get()->pluck('id_parameter')->toArray();
+        $uji_ke = SampelUji::where(['id_uji'=>$request->id_uji])->get()->pluck('uji_ke','uji_ke')->toArray();
+        if(!empty($sampelUji)) {
+            foreach ($request->post('id_parameter') as $row => $val) {
+                if(!in_array($request->id_parameter[$row],$sampelUji)) {
+                    foreach($uji_ke as $isi) {
+                        $addParameter = SampelUji::create([
+                            'id_uji' => $request->id_uji,
+                            'id_parameter' => $request->id_parameter[$row],
+                            'hasil' => 0,
+                            'uji_ke' => $isi,
+                        ]);
+                    }
+                }
+            }
+        } else {
+            foreach ($request->post('id_parameter') as $row => $val) {
+                $addParameter = SampelUji::create([
+                    'id_uji' => $request->id_uji,
+                    'id_parameter' => $request->id_parameter[$row],
+                    'hasil' => 0,
+                ]);
+            }
+            $addParameter->save();
         }
-        $addParameter->save();
 
         if ($addParameter) {
             return redirect('/data-uji')->with("successAdd", "Data added successfully");
@@ -55,12 +72,18 @@ class DataHasilUjiController extends Controller
     public function processAddHasil(Request $request, $id)
     {
         $id = base64_decode($id);
+        SampelUji::where(['id_uji'=>$id])->delete();
+        $i = 1;
         foreach ($request->input('hasil') as $row => $val) {
-            $sampelUji = SampelUji::find($request->id[$row])->update([
-                'id_uji' => $request->id_uji,
-                'id_parameter' => $request->id_parameter[$row],
-                'hasil' => $request->hasil[$row],
-            ]);
+            foreach($request->id_parameter[$row] as $key => $isi) {
+                $sampelUji = SampelUji::create([
+                    'id_uji' => $request->id_uji,
+                    'id_parameter' => $isi,
+                    'hasil' => $request->hasil[$row][$key],
+                    'uji_ke' => $i,
+                ]);
+            }
+            $i++;
         }
 
         if ($sampelUji) {

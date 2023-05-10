@@ -24,4 +24,10 @@ class HomeController extends Controller
         $data = DataUji::All();
         return view('dashboard', compact('data'));
     }
+
+    public function status()
+    {
+        $data = DataUji::All();
+        return view('status', compact('data'));
+    }
 }

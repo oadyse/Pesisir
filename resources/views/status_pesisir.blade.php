@@ -12,6 +12,9 @@
         <tbody>
             <?php
             $no = 1;
+            $WQIA = [];
+            $WQIAU = [];
+            $hasil = [];
 
             foreach ($data as $laporan) {
                 $id = $laporan->id;

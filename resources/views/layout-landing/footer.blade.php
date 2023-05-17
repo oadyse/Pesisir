@@ -24,7 +24,7 @@
                 <div class="col-lg-8 col-md-6 ml-5" style="margin-top: -8%">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32658820.70750132!2d99.42230558910994!3d-2.275412000227088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sid!2sid!4v1672187699954!5m2!1sid!2sid"
-                        width="740" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="860" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

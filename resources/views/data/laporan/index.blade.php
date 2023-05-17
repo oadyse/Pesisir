@@ -23,7 +23,7 @@
                                             <th>Nama Pulau</th>
                                             <th>Tahun</th>
                                             <th>Lokasi</th>
-                                            <th>Detail Laporan</th>
+                                            <th width="18%">Detail Laporan</th>
                                         </tr>
                                     </thead>
                                     <tbody>

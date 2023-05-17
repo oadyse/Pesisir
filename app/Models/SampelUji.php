@@ -17,4 +17,14 @@ class SampelUji extends Model
     {
         return $this->hasOne(Parameter::class, 'id', 'id_parameter');
     }
+
+    public function get_data()
+    {
+        return $this->hasOne(DataParameter::class, 'id_parameter', 'id_parameter');
+    }
+
+    public function get_year()
+    {
+        return $this->belongsTo(DataUji::class, 'id_uji', 'id');
+    }
 }

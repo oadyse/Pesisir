@@ -28,6 +28,8 @@ Route::post('register/action', [RegisterController::class, 'create'])->name('reg
 
 Auth::routes();
 
+Route::get('status-indeks-air', [HomeController::class, 'status'])->name('status');
+
 /*All Admin Routes List*/
 Route::middleware(['user-access:admin'])->group(function () {
 
@@ -71,10 +73,10 @@ Route::middleware(['user-access:admin'])->group(function () {
     Route::post('/data-uji/add_parameter', [DataHasilUjiController::class, 'addNewParameter'])->name('add-ujiparam');
     Route::post('/data-uji/update_parameter/{id}', [DataHasilUjiController::class, 'processUpdateParameter'])->name('edit-ujiparam');
     Route::get('/data-uji/delete/{id}', [DataHasilUjiController::class, 'delete'])->name('delete-uji');
+    Route::post('/data-uji/add_hasil/{id}', [DataHasilUjiController::class, 'processAddHasil'])->name('add-hasil');
 
     // data laporan
     Route::get('/data-laporan', [DataLaporanController::class, 'index'])->name('index-laporan');
-    Route::get('/data-laporan/detail/{id}', [DataLaporanController::class, 'detail'])->name('detail-laporan');
 });
 
 /*All User Routes List*/
@@ -99,4 +101,5 @@ Route::middleware(['user-access:user,admin'])->group(function () {
     Route::post('/data-laporan/create', [DataLaporanController::class, 'addNew'])->name('add-laporan');
     Route::post('/data-laporan/update/{id}', [DataLaporanController::class, 'processUpdate'])->name('edit-laporan');
     Route::get('/data-laporan/delete/{id}', [DataLaporanController::class, 'delete'])->name('delete-laporan');
+    Route::get('/data-laporan/detail/{id}', [DataLaporanController::class, 'detail'])->name('detail-laporan');
 });

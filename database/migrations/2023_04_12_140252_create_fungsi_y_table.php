@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sampel_uji', function (Blueprint $table) {
+        Schema::create('fungsi_y', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_uji');
             $table->unsignedBigInteger('id_parameter');
-            $table->float('hasil')->nullable();
-            $table->integer('uji_ke')->default(1);
+            $table->integer('fungsi_y');
             $table->timestamps();
-            $table->foreign('id_uji')->references('id')->on('data_uji')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_parameter')->references('id')->on('parameter')->onDelete('cascade')->onUpdate('cascade');
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sampel_uji');
+        Schema::dropIfExists('fungsi_y');
     }
 };

@@ -82,6 +82,7 @@
                         @endif
                     @endforeach
                     @php
+                        $WQIA = empty($WQIA) ? [0,0] : $WQIA;
                         $min = number_format(min($WQIA), 2, ',', ' ');
                         $mean = number_format(array_sum($WQIA)/count($WQIA), 2, ',', ' ');
                         $max = number_format(max($WQIA), 2, ',', ' ');

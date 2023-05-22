@@ -93,7 +93,7 @@ Route::middleware(['user-access:user,admin'])->group(function () {
     Route::post('/data-uji/update/{id}', [DataHasilUjiController::class, 'processUpdate'])->name('edit-uji');
     Route::post('/data-uji/add_parameter', [DataHasilUjiController::class, 'addNewParameter'])->name('add-ujiparam');
     Route::post('/data-uji/update_parameter/{id}', [DataHasilUjiController::class, 'processUpdateParameter'])->name('edit-ujiparam');
-    Route::get('/data-uji/delete/{id}', [DataHasilUjiController::class, 'delete'])->name('delete-uji');
+    Route::get('/data-uji/hapus/{id?}', [DataHasilUjiController::class, 'processDelete'])->name('delete-uji');
     Route::post('/data-uji/add_hasil/{id}', [DataHasilUjiController::class, 'processAddHasil'])->name('add-hasil');
 
     // data laporan

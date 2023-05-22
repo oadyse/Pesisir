@@ -22,6 +22,9 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
         $data = DataUji::All();
+        if(auth()->user()->role == 'user') {
+            $data = DataUji::where(['id_user'=>auth()->user()->id])->get();
+        }
         return view('dashboard', compact('data'));
     }
 

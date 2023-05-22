@@ -86,19 +86,6 @@
                         $min = number_format(min($WQIA), 2, ',', ' ');
                         $mean = number_format(array_sum($WQIA)/count($WQIA), 2, ',', ' ');
                         $max = number_format(max($WQIA), 2, ',', ' ');
-                        function hitung($angka) {
-                            if($angka < 25) {
-                                return 'Sangat Buruk';
-                            } else if($angka < 50) {
-                                return 'Buruk';
-                            } else if($angka < 70) {
-                                return 'Sedang';
-                            } else if($angka < 90) {
-                                return 'Bagus';
-                            } else if($angka < 100) {
-                                return 'Sangat Bagus';
-                            }
-                        }
                     @endphp
                     {{ hitung($max) }}
                 </td>

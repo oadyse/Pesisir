@@ -13,6 +13,9 @@ class DataHasilUjiController extends Controller
     public function index()
     {
         $data = DataUji::All();
+        if(auth()->user()->role == 'user') {
+            $data = DataUji::where(['id_user'=>auth()->user()->id])->get();
+        }
         $pesisir = DataPesisir::All();
         $parameter = Parameter::All();
         $sampelUji = SampelUji::orderBy('uji_ke','asc')->get();
@@ -23,6 +26,7 @@ class DataHasilUjiController extends Controller
     {
         $addUji = DataUji::create([
             'id_pulau' => $request->id_pulau,
+            'id_user' => auth()->user()->id,
             'tahun' => $request->tahun,
         ]);
         $addUji->save();
@@ -90,6 +94,34 @@ class DataHasilUjiController extends Controller
             return redirect('/data-uji')->with("successAdd", "Data added successfully");
         } else {
             return redirect()->back()->withInput()->withErrors("Terjadi kesalahan");
+        }
+    }
+
+    public function processUpdate(Request $request, $id)
+    {
+        $addUji = DataUji::where(['id'=>$id])->update([
+            'id_pulau' => $request->id_pulau,
+            'id_user' => auth()->user()->id,
+            'tahun' => $request->tahun,
+        ]);
+
+        if ($addUji) {
+            return redirect('/data-uji')->with("successUpdate", "Data update successfully");
+        } else {
+            return redirect()->back()->withInput()->withErrors("Terjadi kesalahan");
+        }
+    }
+
+    public function processDelete(Request $request, $id)
+    {
+        if(!empty($id)) {
+            $addUji = DataUji::where(['id'=>$id])->delete();
+        }
+
+        if ($addUji) {
+            return redirect('/data-uji')->with("successDelete", "Data delete successfully");
+        } else {
+            return redirect('/data-uji')->withErrors("Terjadi kesalahan");
         }
     }
 }

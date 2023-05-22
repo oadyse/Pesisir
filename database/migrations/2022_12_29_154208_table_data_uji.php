@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('data_uji', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pulau');
+            $table->integer('id_user');
             $table->integer('tahun');
             $table->timestamps();
             $table->foreign('id_pulau')->references('id')->on('data_pesisir')->onDelete('cascade')->onUpdate('cascade');

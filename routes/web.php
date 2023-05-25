@@ -12,9 +12,25 @@ use App\Http\Controllers\WisataBahariController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DataParameterController;
 use App\Http\Controllers\KurvaParameterController;
+use App\Models\DataUji;
 
 Route::get('/', function () {
-    return view('landing');
+    $model = DataUji::all();
+    $initialMarkers = [];
+    foreach($model as $isi) {
+        $initialMarkers[] = 
+            [
+                'position' => [
+                    'lat' => $isi->pulau->latitude,
+                    'lng' => $isi->pulau->longitude
+                ],
+                'draggable' => true,
+                'title' => $isi->pulau->nama,
+                'status_air' => statusAir($isi),
+            ];
+    };
+
+    return view('landing',compact('initialMarkers'));
 });
 
 // LOGIN

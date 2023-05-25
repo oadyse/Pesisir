@@ -102,14 +102,14 @@
 
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", (event) => {
-        var i = {{($i+1)}};
+        var i = {{$i}};
         var form = $("#multi-form").html();
         $("#add").click(function() {
             ++i;
             $("#main-form").append(
                 `<div class="sample">
                     <div class="row mb-4 mx-auto justify-content-center">
-                        <h5 class="my-auto">Masukkan Sampel ke-` + (i + 1) + `</h5>
+                        <h5 class="my-auto">Masukkan Sampel ke-` + i + `</h5>
                         <a class="iq-icons-list text-danger remove mt-2 ml-2"
                             href="#" type="button"
                             title="Delete">

@@ -9,3 +9,6 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('landing') }}/assets/js/main.js"></script>
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="{{ asset('plugins') }}/leaflet/leaflet.js"></script>

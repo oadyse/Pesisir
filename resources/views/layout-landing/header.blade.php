@@ -28,7 +28,10 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('landing') }}/assets/css/style.css" rel="stylesheet">
-
+    <link href="{{ asset('plugins') }}/leaflet/leaflet.css" rel="stylesheet">
+    <style>
+        #map { height: 280px; }
+    </style>
 </head>
 
 <body>

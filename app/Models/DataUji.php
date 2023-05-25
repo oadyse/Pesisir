@@ -22,4 +22,5 @@ class DataUji extends Model
     {
         return $this->hasMany(SampelUji::class, 'id_uji', 'id');
     }
+
 }

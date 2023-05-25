@@ -7,6 +7,9 @@
                 <th>Lokasi</th>
                 <th>Latitude & Longitude</th>
                 <th>Status Mutu</th>
+                @if (auth()->user())                
+                    <th width="18%">Detail Laporan</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -89,6 +92,16 @@
                     @endphp
                     {{ hitung($max) }}
                 </td>
+                @if (auth()->user())                
+                    <td class="text-center">
+                        <a class="btn btn-info"
+                            href="{{ route('detail-laporan', base64_encode($id)) }}"
+                            title="View Detail Laporan">
+                            Lihat Laporan
+                        </a>
+
+                    </td>
+                @endif
             </tr>
             <?php
             $no += 1;

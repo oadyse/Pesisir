@@ -211,21 +211,6 @@
                             <div class="row my-3">
                                 <div class="col-12">
                                     <b>Kesimpulan:</b>
-                                    @php
-                                        function hitung($angka) {
-                                            if($angka < 25) {
-                                                return 'Sangat Buruk';
-                                            } else if($angka < 50) {
-                                                return 'Buruk';
-                                            } else if($angka < 70) {
-                                                return 'Sedang';
-                                            } else if($angka < 90) {
-                                                return 'Bagus';
-                                            } else if($angka < 100) {
-                                                return 'Sangat Bagus';
-                                            }
-                                        }
-                                    @endphp
                                     <p>
                                         Nilai CWQI berkisar diantara <b>{{$min}} - {{$max}}</b>, sehingga dapat dikatakan kualitas air pesisir
                                         untuk biota laut berada pada tingkat yang <b> {{ hitung($max) }} </b> pada tahun

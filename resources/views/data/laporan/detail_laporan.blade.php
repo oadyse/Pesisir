@@ -272,16 +272,16 @@
                                                     $Wi = $k / $SVi;
                                                     
                                                     // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
-                                                    if ($laporan->param->id == 11) {
+                                                    if ($laporan->param->id == 51) {
                                                         // 11 = BOD5
                                                         $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $parameter['wisata'][$laporan->id_parameter][$isi]);
-                                                    } elseif ($laporan->param->id == 12) {
+                                                    } elseif ($laporan->param->id == 52) {
                                                         // 12 = Amonia total
                                                         $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $parameter['wisata'][$laporan->id_parameter][$isi]);
-                                                    } elseif ($laporan->param->id == 13) {
+                                                    } elseif ($laporan->param->id == 53) {
                                                         // 13 = Ortofosfat
                                                         $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * $parameter['wisata'][$laporan->id_parameter][$isi]);
-                                                    } elseif ($laporan->param->id == 14) {
+                                                    } elseif ($laporan->param->id == 54) {
                                                         // 14 = Nitrat
                                                         $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $parameter['wisata'][$laporan->id_parameter][$isi]);
                                                     } else {
@@ -291,7 +291,7 @@
                                                     // Nilai y * 100 * nilai Wi (diklai 100 untung menghilangkan 0 di depan angka)
                                                     $hasil[$isi] = $nilaiY * 100 * $Wi;
                                                     $x = $nilaiY * 100;
-                                                    
+
                                                     // Total Nilai akhir
                                                     $WQIA[$isi] = empty($WQIA[$isi]) ? 0 : $WQIA[$isi];
                                                     $WQIA[$isi] += $hasil[$isi];

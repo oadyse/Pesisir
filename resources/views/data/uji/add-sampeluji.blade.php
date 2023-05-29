@@ -13,7 +13,7 @@
                     enctype="multipart/form-data" novalidate>
                     @csrf
                     <input type="hidden" name="id_uji" value="{{ $id }}">
-                    <div id="main-form">
+                    <div id="main-form{{$id}}">
                         <?php $i=0 ?>
                         @foreach ($sampelUji as $outer)
                             @if ($i!=$outer->uji_ke && $outer->id_uji == $id)
@@ -92,7 +92,7 @@
                     </div>
             </div>
             <div class="modal-footer justify-content-end">
-                <button type="button" id="add" class="btn btn-warning">Add More Sample</button>
+                <button type="button" id="add{{$id}}" class="btn btn-warning">Add More Sample</button>
                 <button type="submit" class="btn btn-primary">Save Data</button>
             </div>
             </form>
@@ -102,11 +102,10 @@
 
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", (event) => {
-        var i = {{$i}};
-        var form = $("#multi-form").html();
-        $("#add").click(function() {
+        let i = {{$i}};
+        $("#add{{$id}}").click(function() {
             ++i;
-            $("#main-form").append(
+            $("#main-form{{$id}}").append(
                 `<div class="sample">
                     <div class="row mb-4 mx-auto justify-content-center">
                         <h5 class="my-auto">Masukkan Sampel ke-` + i + `</h5>
@@ -126,7 +125,7 @@
                             <h6>BIOTA LAUT</h6>
                             <hr>
                             @foreach ($sampelUji as $data)
-                                @if ($data->param->jenis == 'biota')
+                                @if ($data->param->jenis == 'biota' && $outer->uji_ke == $data->uji_ke && $data->id_uji == $id)
                                     <input type="hidden" name="id[` + i + `][]" value="{{ $data->id }}">
                                     <div class="form-row my-3">
                                         <div class="col-5 m-auto">
@@ -150,7 +149,7 @@
                             <h6>WISATA BAHARI</h6>
                             <hr>
                             @foreach ($sampelUji as $data)
-                                @if ($data->param->jenis == 'wisata')
+                                @if ($data->param->jenis == 'wisata' && $outer->uji_ke == $data->uji_ke && $data->id_uji == $id)
                                     <input type="hidden" name="id[` + i + `][]" value="{{ $data->id }}">
                                     <div class="form-row my-3">
                                         <div class="col-5 m-auto">

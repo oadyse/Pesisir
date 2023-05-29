@@ -43,16 +43,16 @@ function statusAir($pengujian)
                 // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
                 if ($sample->param->id == 11) {
                     // 11 = BOD5
-                    $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $parameter['biota'][$sample->id_parameter][$isi]);
+                    $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                 } elseif ($sample->param->id == 12) {
                     // 12 = Amonia total
-                    $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $parameter['biota'][$sample->id_parameter][$isi]);
+                    $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                 } elseif ($sample->param->id == 13) {
                     // 13 = Ortofosfat
-                    $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * $parameter['biota'][$sample->id_parameter][$isi]);
+                    $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                 } elseif ($sample->param->id == 14) {
                     // 14 = Nitrat
-                    $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $parameter['biota'][$sample->id_parameter][$isi]);
+                    $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                 } else {
                     $nilaiY = 0;
                 }

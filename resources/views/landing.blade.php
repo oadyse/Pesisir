@@ -79,6 +79,40 @@
         </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Services Section ======= -->
+    <section id="kurva" class="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+                <h2>Kurva Uji Air</h2>
+                <p>
+                    
+                </p>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-12 align-items-stretch mb-5 mb-lg-0">
+                    <div class='my-3 pt-3'>
+                        <p class="text-center">Kurva PH</p>
+                        <img src="{{asset('landing/kurva/kurva-ph.png')}}" class="w-50" alt="" srcset="">
+                    </div>
+                    <div class='my-3 pt-3'>
+                        <p class="text-center">Kurva Salinitas</p>
+                        <img src="{{asset('landing/kurva/kurva-salinitas.png')}}" class="w-50" alt="" srcset="">
+                    </div>
+                    <div class='my-3 pt-3'>
+                        <p class="text-center">Kurva DO</p>
+                        <img src="{{asset('landing/kurva/kurva-do.png')}}" class="w-50" alt="" srcset="">
+                    </div>
+                    <div class='my-3 pt-3'>
+                        <p class="text-center">Kurva Amonia</p>
+                        <img src="{{asset('landing/kurva/kurva-amonia.png')}}" class="w-50" alt="" srcset="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Services Section -->
+
 </main><!-- End #main -->
 
 @include('layout-landing.footer')
@@ -119,7 +153,7 @@
         
             marker.addTo(map).bindPopup(`<b>${data.title}<br>Status Air : ${data.status_air}</b>`).openPopup();
             map.panTo(data.position);
-            marker.push(marker)
+            // marker.push(marker)
         }
     }
     

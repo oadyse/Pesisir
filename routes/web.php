@@ -24,7 +24,7 @@ Route::get('/', function () {
                     'lat' => $isi->pulau->latitude,
                     'lng' => $isi->pulau->longitude
                 ],
-                'draggable' => true,
+                'draggable' => false,
                 'title' => $isi->pulau->nama,
                 'status_air' => statusAir($isi),
             ];

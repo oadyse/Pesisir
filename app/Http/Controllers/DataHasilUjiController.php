@@ -18,7 +18,7 @@ class DataHasilUjiController extends Controller
         }
         $pesisir = DataPesisir::All();
         $parameter = Parameter::All();
-        $sampelUji = SampelUji::orderBy('uji_ke','asc')->get();
+        $sampelUji = SampelUji::orderBy('id_uji','asc')->orderBy('uji_ke','asc')->get();
         return view('data.uji.index', compact('data', 'pesisir', 'parameter', 'sampelUji'));
     }
 

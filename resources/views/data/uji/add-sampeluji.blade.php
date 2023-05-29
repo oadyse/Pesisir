@@ -16,11 +16,12 @@
                     <div id="main-form">
                         <?php $i=0 ?>
                         @foreach ($sampelUji as $outer)
-                            @if ($i!=$outer->uji_ke)
+                            @if ($i!=$outer->uji_ke && $outer->id_uji == $id)
+                            <?php $i=$outer->uji_ke ?>
                             <div class="sample">
                                 <div class="row mb-4 mx-auto justify-content-center">
                                     <h5>Masukkan Sampel ke-{{$outer->uji_ke}}</h5>
-                                    @if ($i!=0)
+                                    @if ($i!=1)
                                         <a class="iq-icons-list text-danger remove mt-2 ml-2"
                                         href="#" type="button"
                                         title="Delete">
@@ -38,7 +39,7 @@
                                         <h6>BIOTA LAUT</h6>
                                         <hr>
                                         @foreach ($sampelUji as $data)
-                                            @if ($data->param->jenis == 'biota' && $outer->uji_ke == $data->uji_ke)
+                                            @if ($data->param->jenis == 'biota' && $outer->uji_ke == $data->uji_ke && $data->id_uji == $id)
                                                 <input type="hidden" name="id[{{$outer->uji_ke}}][]" value="{{ $data->id }}">
                                                 <div class="form-row my-3">
                                                     <div class="col-5 m-auto">
@@ -62,7 +63,7 @@
                                         <h6>WISATA BAHARI</h6>
                                         <hr>
                                         @foreach ($sampelUji as $data)
-                                            @if ($data->param->jenis == 'wisata' && $outer->uji_ke == $data->uji_ke)
+                                            @if ($data->param->jenis == 'wisata' && $outer->uji_ke == $data->uji_ke && $data->id_uji == $id)
                                                 <input type="hidden" name="id[{{$outer->uji_ke}}][]" value="{{ $data->id }}">
                                                 <div class="form-row my-3">
                                                     <div class="col-5 m-auto">
@@ -87,7 +88,6 @@
 
                             </div>
                             @endif
-                            <?php $i=$outer->uji_ke ?>
                         @endforeach
                     </div>
             </div>

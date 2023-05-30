@@ -43,6 +43,7 @@ class DataHasilUjiController extends Controller
         $sampelUji = SampelUji::where(['id_uji'=>$request->id_uji])->get()->pluck('id_parameter')->toArray();
         $uji_ke = SampelUji::where(['id_uji'=>$request->id_uji])->get()->pluck('uji_ke','uji_ke')->toArray();
         if(!empty($sampelUji)) {
+            $id_param = [];
             foreach ($request->post('id_parameter') as $row => $val) {
                 if(!in_array($request->id_parameter[$row],$sampelUji)) {
                     foreach($uji_ke as $isi) {
@@ -54,7 +55,9 @@ class DataHasilUjiController extends Controller
                         ]);
                     }
                 }
+                $id_param[] = $request->id_parameter[$row];
             }
+            $addParameter = SampelUji::where(['id_uji'=>$request->id_uji])->whereNotIn('id_parameter', $id_param)->delete();
         } else {
             foreach ($request->post('id_parameter') as $row => $val) {
                 $addParameter = SampelUji::create([

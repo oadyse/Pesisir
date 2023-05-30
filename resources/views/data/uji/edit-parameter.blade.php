@@ -22,7 +22,7 @@
                                     @if ($value->jenis == 'biota')
                                         @php $selected = ''; @endphp
                                         @foreach ($sampelUji as $uji)
-                                            @if ($uji->param->jenis == 'biota' && $value->id == $uji->id_parameter)
+                                            @if ($uji->param->jenis == 'biota' && $value->id == $uji->id_parameter && $uji->id_uji == $id)
                                                 @php $selected = 'selected' @endphp
                                             @endif
                                         @endforeach
@@ -43,7 +43,7 @@
                                     @if ($value->jenis == 'wisata')
                                         @php $selected = ''; @endphp
                                         @foreach ($sampelUji as $uji)
-                                            @if ($uji->param->jenis == 'wisata' && $value->id == $uji->id_parameter)
+                                            @if ($uji->param->jenis == 'wisata' && $value->id == $uji->id_parameter && $uji->id_uji == $id)
                                                 @php $selected = 'selected' @endphp
                                             @endif
                                         @endforeach

@@ -87,20 +87,20 @@ class DataParameterSeeder extends Seeder
                 [
                     'id_parameter' => 12,
                     'satuan' => "mg/L",
-                    'baku_mutu' => "30",
-                    'nilai' => "20.00",
+                    'baku_mutu' => "300",
+                    'nilai' => "18.75",
                 ],
                 [
                     'id_parameter' => 13,
                     'satuan' => "mg/L",
                     'baku_mutu' => "15",
-                    'nilai' => "0.94",
+                    'nilai' => "0.0009374375",
                 ],
                 [
                     'id_parameter' => 14,
                     'satuan' => "mg/L",
                     'baku_mutu' => "8",
-                    'nilai' => "0.5",
+                    'nilai' => "0.0005",
                 ],
                 [
                     'id_parameter' => 15,
@@ -321,26 +321,26 @@ class DataParameterSeeder extends Seeder
                 [
                     'id_parameter' => 51,
                     'satuan' => "mg/L",
-                    'baku_mutu' => "10",
+                    'baku_mutu' => "20",
                     'nilai' => "0.62",
                 ],
                 [
                     'id_parameter' => 52,
                     'satuan' => "mg/L",
-                    'baku_mutu' => "30",
-                    'nilai' => "20.00",
+                    'baku_mutu' => "300",
+                    'nilai' => "18.75",
                 ],
                 [
                     'id_parameter' => 53,
                     'satuan' => "mg/L",
                     'baku_mutu' => "15",
-                    'nilai' => "0.94",
+                    'nilai' => "0.0009374375",
                 ],
                 [
                     'id_parameter' => 54,
                     'satuan' => "mg/L",
                     'baku_mutu' => "8",
-                    'nilai' => "0.5",
+                    'nilai' => "0.0005",
                 ],
                 [
                     'id_parameter' => 55,

@@ -64,7 +64,7 @@
                                     $nilaiY = 0.981085972533536 * exp(-0.153725962938623 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                                 } elseif ($sample->param->id == 14) {
                                     // 14 = Nitrat
-                                    $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * $parameter['biota'][$sample->id_parameter][$isi]);
+                                    $nilaiY = 1.01050605076391 * exp(-0.292728289588808 * ($parameter['biota'][$sample->id_parameter][$isi] ?? 0));
                                 } else {
                                     $nilaiY = 0;
                                 }

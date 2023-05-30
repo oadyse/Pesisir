@@ -38,6 +38,9 @@
                                             @if ($laporan->param->jenis == 'biota' && $laporan->uji_ke == 1)
                                                 @php
                                                     $Vi = round(1 / ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai), 5);
+                                                    if(in_array($laporan->param->id,[13,14])) {
+                                                        $Vi = round(1 / ($laporan->get_data->nilai==''?0.001:($laporan->get_data->nilai*1000)), 5);
+                                                    }
                                                     $totalVi += $Vi;
                                                 @endphp
                                             @endif
@@ -47,6 +50,9 @@
                                             @if ($laporan->param->jenis == 'biota' && $laporan->uji_ke == 1)
                                                 @php
                                                     $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
+                                                    if(in_array($laporan->param->id,[13,14])) {
+                                                        $SVi = ($laporan->get_data->nilai==''?0.001:$laporan->get_data->nilai)*1000;
+                                                    }
                                                     $Vi = round(1 / $SVi, 4);
                                                     $k = 1 / $totalVi;
                                                 @endphp
@@ -98,6 +104,9 @@
                                                 @php
                                                 foreach ($sample as $isi) {
                                                     $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
+                                                    if(in_array($laporan->param->id,[13,14])) {
+                                                        $SVi = ($laporan->get_data->nilai==''?0.001:$laporan->get_data->nilai)*1000;
+                                                    }
                                                     $Vi = round(1 / $SVi, 2);
                                                     $k = 1 / $totalVi;
                                                     $Wi = $k / $SVi;
@@ -207,6 +216,9 @@
                                             @if ($laporan->param->jenis == 'wisata' && $laporan->uji_ke == 1)
                                                 @php
                                                     $Vi = round(1 / ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai), 5);
+                                                    if(in_array($laporan->param->id,[53,54])) {
+                                                        $Vi = round(1 / ($laporan->get_data->nilai==''?0.001:($laporan->get_data->nilai*1000)), 5);
+                                                    }
                                                     $totalVi += $Vi;
                                                 @endphp
                                             @endif
@@ -216,6 +228,9 @@
                                             @if ($laporan->param->jenis == 'wisata' && $laporan->uji_ke == 1)
                                                 @php
                                                     $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
+                                                    if(in_array($laporan->param->id,[53,54])) {
+                                                        $SVi = ($laporan->get_data->nilai==''?0.001:$laporan->get_data->nilai)*1000;
+                                                    }
                                                     $Vi = round(1 / $SVi, 4);
                                                     $k = 1 / $totalVi;
                                                 @endphp
@@ -267,6 +282,9 @@
                                                 @php
                                                 foreach ($sample as $isi) {
                                                     $SVi = ($laporan->get_data->nilai==''?1:$laporan->get_data->nilai);
+                                                    if(in_array($laporan->param->id,[53,54])) {
+                                                        $SVi = ($laporan->get_data->nilai==''?0.001:$laporan->get_data->nilai)*1000;
+                                                    }
                                                     $Vi = round(1 / $SVi, 2);
                                                     $k = 1 / $totalVi;
                                                     $Wi = $k / $SVi;
@@ -274,7 +292,7 @@
                                                     // Nilai Y didapat dari perkalian sampel dengan kurva tiap parameter
                                                     if ($laporan->param->id == 51) {
                                                         // 11 = BOD5
-                                                        $nilaiY = 1.01040745922865 * exp(-0.116995811136413 * $parameter['wisata'][$laporan->id_parameter][$isi]);
+                                                        $nilaiY = 1.01008344901325 * exp(-0.234070386744694 * $parameter['wisata'][$laporan->id_parameter][$isi]);
                                                     } elseif ($laporan->param->id == 52) {
                                                         // 12 = Amonia total
                                                         $nilaiY = 1.010498667279 * exp(-0.0077965531620728 * $parameter['wisata'][$laporan->id_parameter][$isi]);

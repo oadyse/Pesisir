@@ -59,25 +59,6 @@
         </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="maps" class="services">
-        <div class="container">
-            <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-                <h2>Sampel Uji Air</h2>
-                <p>
-                    Sistem ini dirancang berbasis web yang dapat mempercepat serta mempermudah pihak
-                    terkait untuk menentukan/menghitung indeks kualitas air pesisir dan laut.
-                </p>
-            </div>
-
-            <div class="row text-center">
-                <div class="col-md-12 align-items-stretch mb-5 mb-lg-0">
-                    <div id='map'></div>
-                </div>
-
-            </div>
-        </div>
-    </section><!-- End Services Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="kurva" class="services">
@@ -85,30 +66,87 @@
             <div class="section-title" data-aos="fade-in" data-aos-delay="100">
                 <h2>Kurva Uji Air</h2>
                 <p>
-                    
+                    Berikut beberapa sampel parameter uji air yang divisualisasikan dalam bentuk kurva.
                 </p>
-            </div>
-
-            <div class="row text-center">
-                <div class="col-md-12 align-items-stretch mb-5 mb-lg-0">
-                    <div class='my-3 pt-3'>
-                        <p class="text-center">Kurva PH</p>
-                        <img src="{{asset('landing/kurva/kurva-ph.png')}}" class="w-50" alt="" srcset="">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-center mt-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#ph">pH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#salinitas">Salinitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#do">DO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#amonia">Ammonia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#nitrat">Nitrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#nitrit">Nitrite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tts">TTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#turbudity">Turbudity</a>
+                    </li>
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane container active" id="ph">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva PH</p>
+                            <img src="{{asset('landing/kurva/kurva-ph.png')}}" class="w-50" alt="" srcset="">
+                        </div>
                     </div>
-                    <div class='my-3 pt-3'>
-                        <p class="text-center">Kurva Salinitas</p>
-                        <img src="{{asset('landing/kurva/kurva-salinitas.png')}}" class="w-50" alt="" srcset="">
+                    <div class="tab-pane container fade" id="salinitas">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva Salinitas</p>
+                            <img src="{{asset('landing/kurva/kurva-salinitas.png')}}" class="w-50" alt="" srcset="">
+                        </div>
                     </div>
-                    <div class='my-3 pt-3'>
-                        <p class="text-center">Kurva DO</p>
-                        <img src="{{asset('landing/kurva/kurva-do.png')}}" class="w-50" alt="" srcset="">
+                    <div class="tab-pane container fade" id="do">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva DO</p>
+                            <img src="{{asset('landing/kurva/kurva-do.png')}}" class="w-50" alt="" srcset="">
+                        </div>
                     </div>
-                    <div class='my-3 pt-3'>
-                        <p class="text-center">Kurva Amonia</p>
-                        <img src="{{asset('landing/kurva/kurva-amonia.png')}}" class="w-50" alt="" srcset="">
+                    <div class="tab-pane container fade" id="amonia">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva Ammonia</p>
+                            <img src="{{asset('landing/kurva/kurva-amonia.png')}}" class="w-50" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="nitrat">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva Nitrate</p>
+                            <img src="{{asset('landing/kurva/kurva-nitrat.png')}}" class="w-50" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="nitrit">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva Nitrite</p>
+                            <img src="{{asset('landing/kurva/kurva-amonia.png')}}" class="w-50" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="tts">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva TTS</p>
+                            <img src="{{asset('landing/kurva/kurva-tts.png')}}" class="w-50" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="turbudity">
+                        <div class='my-3 pt-3'>
+                            <p class="text-center mb-3">Kurva Turbidity</p>
+                            <img src="{{asset('landing/kurva/kurva-turbudity.png')}}" class="w-50" alt="" srcset="">
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section><!-- End Services Section -->
@@ -121,68 +159,6 @@
         class="bi bi-arrow-up-short"></i></a>
 
 @include('layout-landing.script')
-<script>
-    let map, markers = [];
-    function initMap() {
-        map = L.map('map', {
-            center: {
-                lat: 28.626137,
-                lng: 79.821603,
-            },
-            zoom: 15
-        });
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
-        map.on('click', mapClicked);
-        initMarkers();
-    }
-    
-    initMap();
-
-    /* --------------------------- Initialize Markers --------------------------- */
-    function initMarkers() {
-        const initialMarkers = @php echo json_encode($initialMarkers) @endphp
-
-        for (let index = 0; index < initialMarkers.length; index++) {
-
-            const data = initialMarkers[index];
-            const marker = generateMarker(data, index);
-        
-            marker.addTo(map).bindPopup(`<b>${data.title}<br>Status Air : ${data.status_air}</b>`).openPopup();
-            map.panTo(data.position);
-            // marker.push(marker)
-        }
-    }
-    
-    function generateMarker(data, index) {
-        return L.marker(data.position, {
-                draggable: data.draggable
-            })
-            .on('click', (event) => markerClicked(event, index))
-            .on('dragend', (event) => markerDragEnd(event, index));
-    }
-
-    /* ------------------------- Handle Map Click Event ------------------------- */
-    function mapClicked($event) {
-        console.log(map);
-        console.log($event.latlng.lat, $event.latlng.lng);
-    }
-
-    /* ------------------------ Handle Marker Click Event ----------------------- */
-    function markerClicked($event, index) {
-        console.log(map);
-        console.log($event.latlng.lat, $event.latlng.lng);
-    }
-
-    /* ----------------------- Handle Marker DragEnd Event ---------------------- */
-    function markerDragEnd($event, index) {
-        console.log(map);
-        console.log($event.target.getLatLng());
-    }
-</script>
 
 </body>
 

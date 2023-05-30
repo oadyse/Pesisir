@@ -15,6 +15,10 @@ use App\Http\Controllers\KurvaParameterController;
 use App\Models\DataUji;
 
 Route::get('/', function () {
+    return view('landing');
+});
+
+Route::get('peta', function () {
     $model = DataUji::all();
     $initialMarkers = [];
     foreach($model as $isi) {
@@ -30,7 +34,7 @@ Route::get('/', function () {
             ];
     };
 
-    return view('landing',compact('initialMarkers'));
+    return view('peta',compact('initialMarkers'));
 });
 
 // LOGIN

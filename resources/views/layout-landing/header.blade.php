@@ -30,7 +30,7 @@
     <link href="{{ asset('landing') }}/assets/css/style.css" rel="stylesheet">
     <link href="{{ asset('plugins') }}/leaflet/leaflet.css" rel="stylesheet">
     <style>
-        #map { height: 280px; }
+        #map { height: 400px; }
     </style>
 </head>
 
@@ -52,6 +52,9 @@
                             href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li><a class="nav-link scrollto" href="#about">Tentang Sistem</a></li>
+                    <li><a class="nav-link scrollto" href="#kurva">Kurva</a></li>
+                    <li><a class="nav-link scrollto {{ Request::is('peta') ? 'active' : '' }}"
+                            href="{{ url('peta') }}">Peta</a></li>
                     <li><a class="nav-link scrollto {{ Request::is('status-indeks-air') ? 'active' : '' }}"
                             href="{{ route('status') }}">Status Indeks Air</a></li>
                     @if (empty(Auth::user()->name))
